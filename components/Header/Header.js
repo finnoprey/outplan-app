@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <h1>OutPlan</h1>
-            <span class="material-icons">settings</span>
+            <span className="material-icons">settings</span>
         </header>
     )
 }
