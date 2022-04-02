@@ -6,8 +6,6 @@ import Link from 'next/link';
 const BottomNavBar = props => {
     const activeLink = props.active;
 
-    console.log(props.active);
-
     var homeLinkClasses = `${styles.bnTab}`;
     var calendarLinkClasses = `${styles.bnTab}`;
     var taskLinkClasses = `${styles.bnTab}`;
