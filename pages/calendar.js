@@ -14,7 +14,7 @@ export default function CalendarPage() {
             <div>
                 <Header />
                 <h1>Calendar</h1>
-                <BottomNavBar />
+                <BottomNavBar active="calendar" />
             </div>
         </>
     )

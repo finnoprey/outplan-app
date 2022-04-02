@@ -15,7 +15,7 @@ export default function Dashboard() {
       <div>
         <Header />
         <DashboardTiles />
-        <BottomNavBar />
+        <BottomNavBar active="index" />
       </div>
     </>
     

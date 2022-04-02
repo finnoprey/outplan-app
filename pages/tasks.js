@@ -13,7 +13,7 @@ export default function TasksPage() {
             <div>
                 <Header />
                 <h1>Tasks</h1>
-                <BottomNavBar />
+                <BottomNavBar active="tasks" />
             </div>
         </>
     )
