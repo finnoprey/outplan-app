@@ -1,0 +1,91 @@
+@import '../../styles/colors.scss';
+.calendarContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .calendarHeader {
+        height: 5vh;
+    }
+    .calendarContent {
+        display: flex;
+        flex: 1;
+        flex-flow: row wrap;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .monthGrid {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            .day {
+                width: percentage(1/7);
+                height: 100px;
+
+                font-weight: 600;
+                padding: 5px;
+
+                border-top: 2px solid gray;
+                border-left: 2px solid gray;
+                &:nth-child(29),
+                &:nth-child(30),
+                &:nth-child(31),
+                &:nth-child(32),
+                &:nth-child(33),
+                &:nth-child(34),
+                &:nth-child(35) {
+                    border-bottom: 2px solid gray;
+                }
+                &:nth-child(7),
+                &:nth-child(14),
+                &:nth-child(21),
+                &:nth-child(28),
+                &:nth-child(35) {
+                    border-right: 2px solid gray;
+                }
+
+                p {
+                    width: 3ch;
+                    height: 3ch;
+                    border-radius: 50%;
+                    display: grid;
+                    place-items: center;
+                    transition: box-shadow 750ms ease, color 750ms ease;
+                    color: #000;
+                    &.today {
+                        box-shadow: 
+                            inset 3ch 3ch $vivid-tangerine,
+                            0 0 5px 2px $vivid-tangerine;
+                        width: 3ch;
+                        height: 3ch;
+                        
+                        padding: 5px;
+                        animation: todayExpand 750ms forwards;
+                    }
+                    &.focussedDay {
+                        box-shadow: 
+                            inset 3ch 3ch $brown,
+                            0 0 5px 2px $brown;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes todayExpand {
+    from {
+        box-shadow: inset 0ch 0ch $vivid-tangerine,
+                    0 0 0px 0px $vivid-tangerine;
+    }
+    to {
+        box-shadow: inset 3ch 3ch $vivid-tangerine,
+                    0 0 5px 2px $vivid-tangerine;
+    }
+}
