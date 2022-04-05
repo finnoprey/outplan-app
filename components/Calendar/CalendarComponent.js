@@ -10,7 +10,6 @@ const CalendarComponent = ({events}) => {
     const [selectedDay, setSelectedDay] = useState('');
 
     const onDayClick = (e) => {
-        console.log(e.target);
         setSelectedDay(e.target);
     }
 

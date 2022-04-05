@@ -3,9 +3,27 @@ import styles from './Calendar.module.scss';
 import { getMonth } from './util';
 
 const CalendarHeader = ({month}) => {
-    console.log(getMonth());
     return (
-        <div className={`${styles.calendarHeader}`}>{}</div>
+        <div className={`${styles.calendarHeader}`}>
+            <h1 className={`${styles.calendarDate}`}>
+                April, 2022
+            </h1>
+            <div className={`${styles.calendarActions}`}>
+                <button className={`${styles.todayBtn}`}>
+                    Today
+                </button>
+                <button className={`${styles.lrBtn}`}>
+                    <span className="material-icons">
+                        chevron_left
+                    </span>
+                </button>
+                <button className={`${styles.lrBtn}`}>
+                    <span className="material-icons">
+                        chevron_right
+                    </span>
+                </button>
+            </div>
+        </div>
     )
 }
 

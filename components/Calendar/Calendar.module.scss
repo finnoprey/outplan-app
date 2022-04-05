@@ -1,12 +1,72 @@
 @import '../../styles/colors.scss';
+@import '../../styles/values.scss';
 .calendarContainer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: $bottomNavHeight;
 
     .calendarHeader {
-        height: 5vh;
+        height: $calendarHeaderHeight;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        .calendarDate {
+            font-weight: 300;
+        }
+        .calendarActions {
+            width: 60vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            margin-top: .5rem;
+
+            >button {
+                padding: .25rem .5rem;
+                transition: all 500ms ease;
+            }
+
+            .todayBtn {
+                margin-right: auto;
+                background: $vivid-tangerine;
+                border: none;
+                outline: none;
+                border-radius: 2rem;
+                color: $white;
+                font-weight: 800;
+                font-size: 1rem;
+
+                &:hover,
+                &:focus-visible {
+                    background-color: darken($vivid-tangerine, 5);
+                    box-shadow: 0 0 5px 2px darken($vivid-tangerine, 5);
+                }
+            }
+            .lrBtn {
+                border-radius: 50%;
+                border: none;
+                outline: none;
+                width: 5ch;
+                height: 5ch;
+                background-color: $gray;
+                color: $darkgray;
+                display: grid;
+                place-items: center;
+
+                &:last-child {
+                    margin-left: .5rem;
+                }
+
+                &:hover,
+                &:focus-visible {
+                    background-color: lighten($gray, 5);
+                    box-shadow: 0 0 5px 2px darken($gray, 5);
+                }
+            }
+        }
     }
     .calendarContent {
         display: flex;
