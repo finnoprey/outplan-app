@@ -1,4 +1,5 @@
 import styles from './BottomNavBar.module.scss';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const BottomNavBar = props => {
