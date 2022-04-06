@@ -5,6 +5,8 @@ import styles from './Calendar.module.scss';
 
 const Day = ({day, clickEvent}) => {
 
+    const {monthIndex, setMonthIndex} = useContext(GlobalContext);
+
     const ref = useRef(null);
     
     const handleClick = (e) => {
@@ -29,14 +31,25 @@ const Day = ({day, clickEvent}) => {
     }, [])
 
     const [clickClass, setClickClass] = useState('');
+    var otherMonthStyle = '';
     const {setDaySelected, setShowEventModal} = useContext(GlobalContext);
     
     const getCurrentDayClass = () => {
         return day.format('DD-MM-YY') === dayjs().format('DD-MM-YY') ? styles.today : '';
     }
 
+    const viewingDate = new Date(dayjs().year(), monthIndex, 1);
+    console.log(new Date(viewingDate.getFullYear(), viewingDate.getMonth()+1, 0));
+
+    if (
+        day.isBefore(new Date(dayjs().year(), monthIndex, 1)) //BEFORE FIRST DAY OF VIEWING MONTH
+        || 
+        day.isAfter(new Date(viewingDate.getFullYear(), viewingDate.getMonth()+1, 0))) { //LAST DAY OF VIEWING MONTH
+        otherMonthStyle = styles.lastMonthDate;
+    }
+
     return (
-        <div ref={ref} onClick={handleClick} className={`${styles.day}`}>
+        <div ref={ref} onClick={handleClick} className={`${styles.day} ${otherMonthStyle}`}>
             <p className={`${getCurrentDayClass()} ${clickClass}`}>
                 {day.format('DD')}
             </p>

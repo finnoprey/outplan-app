@@ -85,7 +85,7 @@
             flex-wrap: wrap;
             .day {
                 width: percentage(1/7);
-                height: 100px;
+                height: 75px;
 
                 font-weight: 600;
                 padding: 5px;
@@ -97,20 +97,21 @@
 
                 border-top: 2px solid gray;
                 border-left: 2px solid gray;
-                &:nth-child(29),
-                &:nth-child(30),
-                &:nth-child(31),
-                &:nth-child(32),
-                &:nth-child(33),
-                &:nth-child(34),
-                &:nth-child(35) {
+                &:nth-child(36),
+                &:nth-child(37),
+                &:nth-child(38),
+                &:nth-child(39),
+                &:nth-child(40),
+                &:nth-child(41),
+                &:nth-child(42) {
                     border-bottom: 2px solid gray;
                 }
                 &:nth-child(7),
                 &:nth-child(14),
                 &:nth-child(21),
                 &:nth-child(28),
-                &:nth-child(35) {
+                &:nth-child(35),
+                &:nth-child(42) {
                     border-right: 2px solid gray;
                 }
 
@@ -140,12 +141,60 @@
                     }
                 }
 
+                &.lastMonthDate {
+                    position: relative;
+                    p {
+                        color: gray;
+                    }
+                    &::after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0,0,0,0.4);
+                    }
+                }
+
                 .events {
                     flex: 1;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
                     width: 100%;
+                }
+            }
+        }
+        .calendarSidebar {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 1rem;
+
+            .createBtn {
+                border: none;
+                outline: none;
+                background-color: $vivid-tangerine;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                padding: .75rem;
+                font-size: 1.25rem;
+                border-radius: 1rem;
+
+                transition: background-color 350ms ease;
+
+                span {
+                    color: white;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: darken($vivid-tangerine, 5);
                 }
             }
         }
@@ -183,23 +232,23 @@
                 color: gray;
             }
 
-            >span {
-                flex-basis: 10%;
-                text-align: left;
-            }
-
             >button {
                 border: none;
                 background: transparent;
-                flex-basis: 10%;
+                flex-basis: 20%;
                 text-align: right;
+                
+                span {
+                    color: $white;
+                }
             }
 
             >h1 {
                 flex-basis: 80%;
                 width: 50%;
                 font-size: 1.5rem;
-                font-weight: 400;
+                font-weight: 700;
+                color: $white;
             }
         }
 

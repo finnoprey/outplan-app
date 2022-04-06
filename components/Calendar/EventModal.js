@@ -11,22 +11,19 @@ export default function EventModal(props) {
 
     const formRef = useRef(null);
     useEffect(() => {
-        const detectModalCloseClick = (ref) => {
-       
-            const handleClickEvent = (e) => {
-                if (ref.current && !ref.current.contains(e.target)) {
-                    setShowEventModal(false);
-                }
-            }
+        let ref = formRef;
 
-            document.addEventListener('mousedown', handleClickEvent);
-            return () => {
-                document.removeEventListener('mousedown', handleClickEvent);
+        const handleClickEvent = (e) => {
+            if (ref.current && !ref.current.contains(e.target)) {
+                setShowEventModal(false);
             }
-        };
+        }
+
+        document.addEventListener('mousedown', handleClickEvent);
+        return () => {
+            document.removeEventListener('mousedown', handleClickEvent);
+        }
     }, [setShowEventModal]);
-
-    detectModalCloseClick(formRef);
 
     const subjects = props.clientSubjects;
 
@@ -34,9 +31,6 @@ export default function EventModal(props) {
         <div className={styles.eventModal}>
             <form ref={formRef} className={styles.eventForm}>
                 <header>
-                    <span className='material-icons'>
-                        drag_handle
-                    </span>
                     <h1>Add event</h1>
                     <button onClick={() => setShowEventModal(false)}>
                         <span className='material-icons'>

@@ -11,7 +11,7 @@ export default function CreateEventButton() {
             <span className="material-icons">
             add
             </span>
-            <span> Create</span>
+            <span> Create Event</span>
         </button>
     )
 }
