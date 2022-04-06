@@ -1,8 +1,12 @@
 import React from 'react'
+import CreateEventButton from './CreateEventButton';
+import styles from './Calendar.module.scss';
 
 const CalendarSidebar = () => {
     return (
-        <div>CalendarSidebar</div>
+        <aside className={styles.calendarSidebar}>
+            <CreateEventButton />
+        </aside>
     )
 }
 
