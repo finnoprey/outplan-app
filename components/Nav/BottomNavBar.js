@@ -26,21 +26,21 @@ const BottomNavBar = props => {
     return (
         <div className={styles.bottomNav}>
             <div className={homeLinkClasses}>
-                <Link href="/">
+                <Link href="/" passHref>
                     <span className='material-icons'>
                         home
                     </span>
                 </Link>
             </div>
             <div className={calendarLinkClasses}>
-                <Link href="/calendar">
+                <Link href="/calendar" passHref>
                     <span className='material-icons'>
                         event
                     </span>
                 </Link>
             </div>
             <div className={taskLinkClasses}>
-                <Link href="/tasks">
+                <Link href="/tasks" passHref>
                     <span className='material-icons'>
                         description
                     </span>

@@ -39,7 +39,6 @@ const Day = ({day, clickEvent}) => {
     }
 
     const viewingDate = new Date(dayjs().year(), monthIndex, 1);
-    console.log(new Date(viewingDate.getFullYear(), viewingDate.getMonth()+1, 0));
 
     if (
         day.isBefore(new Date(dayjs().year(), monthIndex, 1)) //BEFORE FIRST DAY OF VIEWING MONTH
