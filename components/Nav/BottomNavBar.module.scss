@@ -1,35 +1,51 @@
 @import '../../styles/colors.scss';
+
+@keyframes buttonScale {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: scale(110%);
+    }
+}
+
 .bottomNav {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 5rem;
+    height: 6rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
-    background-color: $navcolor;
+    background-color: lighten($navcolor, 4);
     border-radius: 1rem 1rem 0 0;
     
     .bnTab {
+        cursor: pointer;
         text-align: center;
         span {
-            font-size: 2.25rem;
-            padding: .5rem;
+            font-size: 1.9rem;
+            padding: .45em;
             aspect-ratio: 1;
-            color: #fff;
-            text-shadow: 0px 5px 7px rgba(0,0,0,0.6);
+            color: $vivid-tangerine;
         }
         &.active {
-                border-radius: 50%;
-                width: auto;
-                background: $vivid-tangerine;
+            border-radius: 50%;
+            width: auto;
+            background: $vivid-tangerine;
+            span {
+                color: $white;
+            }
+            transform: scale(110%);
+
+            animation: buttonScale 0.3s;
         }
         &:hover, &:focus-visible {
             &:not(.active) {
                 span {
-                    transition: all 300ms ease;
-                    color: #000;
+                    transition: all 500ms ease-in-out;
+                    color: darken($vivid-tangerine, 12);
                 }
             }
         }
