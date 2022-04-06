@@ -69,7 +69,6 @@ export default function EventModal(props) {
                             name="event_description"
                             placeholder="Add a description..."
                             value={eventDescription}
-                            required
                             className={styles.largeText}
                             onChange={(e) => setEventDescription(e.target.value)}
                         />
@@ -84,12 +83,7 @@ export default function EventModal(props) {
                             {subjects.map((subject, i) => {
                                 return (
                                     <option key={i} value={subject.name}>
-                                        <span className={styles.subjectName}>{subject.name}</span>
-                                        <span
-                                            key={i}
-                                            className={styles.subjectDot}
-                                            style={{backgroundColor: subject.color}}
-                                        ></span>
+                                        {subject.name}
                                     </option>
                                 )
                             })}
