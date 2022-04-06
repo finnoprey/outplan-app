@@ -1,8 +1,14 @@
 import Head from 'next/head'
-import Header from '../components/Header/Header'
-import BottomNavBar from '../components/Nav/BottomNavBar'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export default function TasksPage() {
+
+    const variants = {
+        hidden: {opacity: 0},
+        enter: {opacity: 1},
+        exit: {opacity: 0},
+    }
+
     return (
         <>
             <Head>
@@ -11,9 +17,17 @@ export default function TasksPage() {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <div>
-                <Header />
-                <h1>Tasks</h1>
-                <BottomNavBar active="tasks" />
+                <motion.main
+                    key={5}
+                    variants={variants}
+                    initial="hidden"
+                    animate="enter"
+                    exit="exit"
+                    transition={{ease: 'anticipate', duration: 0.5}}
+                    className=""
+                >
+                    <h1>Tasks</h1>
+                </motion.main>
             </div>
         </>
     )
