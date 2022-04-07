@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import GlobalContext from '../../context/GlobalContext';
 import styles from './Calendar.module.scss';
@@ -26,6 +27,9 @@ export default function EventModal(props) {
     }, [setShowEventModal]);
 
     const subjects = props.clientSubjects;
+
+    const SCREEN_WIDTH = window.innerWidth;
+    const SCREEN_HEIGHT = window.innerHeight;
 
     return (
         <div className={styles.eventModal}>

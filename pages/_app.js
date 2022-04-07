@@ -13,15 +13,19 @@ function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
 
-  Router.events.on('routeChangeComplete', routeChange);
-  Router.events.on('routeChangeStart', routeChange);
+  useEffect(() => {
+    router.events.on('routeChangeComplete', routeChange);
+    router.events.on('routeChangeStart', routeChange);
+
+    return;
+  }, [router.events]);
 
   return (
     <>
     <ContextWrapper>
       <Header />
       <AnimatePresence
-        exitBeforeEnter>
+        exitBeforeEnter initial={false}>
         <Component {...pageProps} key={router.pathname} />
       </AnimatePresence>
       <BottomNavBar active="calendar" />
