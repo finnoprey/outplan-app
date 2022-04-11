@@ -5,10 +5,23 @@ import styles from './Calendar.module.scss';
 
 export default function EventModal(props) {
 
-    const {setShowEventModal, daySelected} = useContext(GlobalContext);
+    const {setShowEventModal, daySelected, dispatchCallEvent} = useContext(GlobalContext);
     const [eventName, setEventName] = useState('');
     const [eventDescription, setEventDescription] = useState('');
     const [eventSubject, setEventSubject] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const calendarEvent = {
+            title: eventName,
+            description: eventDescription,
+            subject: eventSubject,
+            day: daySelected.value,
+            id: Date.now()
+        }
+        dispatchCallEvent({type: 'push', payload: calendarEvent});
+        setShowEventModal(false);
+    }
 
     const formRef = useRef(null);
     useEffect(() => {
@@ -95,7 +108,7 @@ export default function EventModal(props) {
                     </div>
                 </div>
                 <footer>
-                    <button type="submit">
+                    <button type="submit" onClick={handleSubmit}>
                         Add event
                     </button>
                 </footer>

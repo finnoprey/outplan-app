@@ -8,7 +8,8 @@ const GlobalContext = createContext({
     showEventModal: false,
     setShowEventModal: () => {},
     clientSubjects: [],
-    setClientSubjects: () => {}
+    setClientSubjects: () => {},
+    dispatchCallEvent: ({type, payload}) => {}
 });
 
 export default GlobalContext;
